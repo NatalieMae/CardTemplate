@@ -1,7 +1,10 @@
 const SUITS = ["♠", "♣", "♥", "♦"]      //Capitals refer to Global Constant Variable: Arrays 
 const VALUES = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
 
+
+
 class Deck {
+
     constructor(cards= freshDeck()) {       //Gives us a fresh deck of current cards instead of getting us a brand new deck of cards, basically stays with the same game instead of accidentally starting over. 
         this.cards = cards
     }
@@ -56,3 +59,4 @@ function freshDeck() {                                          //create Brand n
         })
     })
 }
+

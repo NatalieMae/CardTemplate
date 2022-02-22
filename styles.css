@@ -3,6 +3,9 @@
 }
 
 body {
+    background-image: url(./images/2016doorcounty-lighthouse.jpg);
+    background-clip: border-box;
+    background-size: auto;
     margin: 0;                  /*  */
     display: grid;              /* 5 section layout  */
     grid-template-columns: repeat(3, 1fr);     /* */
@@ -14,7 +17,9 @@ body {
     padding-top: 1rem;       /* */
 }   
 
+
 .deck {
+    border-image: round;
     height: 100%;            /* fills to 100% of the body margin/gird etc from above*/
     width: 100%;            
     border: 1px solid black;

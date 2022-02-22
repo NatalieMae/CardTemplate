@@ -1,3 +1,10 @@
+// function insert() {
+
+// // let img = document.createElement('img');
+// //     img.src = "./images/2016doorcounty-lighthouse.jpg";
+// //     let src = document.getElementById('div');
+// //     src.appendChild(img);
+// // }
 const CARD_VALUE_MAP = {
     "2": 2,
     "3": 3,
@@ -14,6 +21,7 @@ const CARD_VALUE_MAP = {
     A: 14,
 }                                                                   //this allows for each card to have a value so the code knows who wins the hand
 
+
 const computerCardSlot = document.querySelector(".computer-card-slot")
 const playerCardSlot = document.querySelector(".player-card-slot")
 const computerDeckElement = document.querySelector(".computer-deck")
@@ -22,6 +30,7 @@ const text = document.querySelector('.text')
 
 
 let playerDeck, computerDeck, inRound, stop                         //this allows playerdeck and comptuerdeck etc to be global 
+
 
 document.addEventListener("click", () => {
     if (stop) {
