@@ -4,21 +4,24 @@
 
 body {
     background-image: url(./images/2016doorcounty-lighthouse.jpg);
-    background-clip: border-box;
-    background-size: auto;
-    margin: 0;                  /*  */
+    object-fit: scale-down;
+    /* margin: 0;                   */
     display: grid;              /* 5 section layout  */
-    grid-template-columns: repeat(3, 1fr);     /* */
+    grid-template-columns: repeat(4, 1fr);     /* */
     grid-template-rows: 10rem 8rem 10rem;
     grid-auto-rows: minmax(100px, auto);
     gap: 20px;              /* */
-    cursor: pointer;                 /*anywhere you click on the screen turns a card */
+    /* cursor: pointer;                 anywhere you click on the screen turns a card */
     justify-content: center;         /* */
     padding-top: 1rem;       /* */
 }   
 
+/* .image {
+    background-color: blue;
+} */
 
 .deck {
+    /* background-image: url(./images/202105\ whitewaterwi.jpg); */
     border-image: round;
     height: 100%;            /* fills to 100% of the body margin/gird etc from above*/
     width: 100%;            
@@ -41,6 +44,21 @@ body {
     background-color: blue;
 }
 
+.computer-player-war {
+    background-color: blueviolet;
+}
+
+.player-computer-war {
+    background-color: aqua;
+}
+
+.computer-war-winner {
+    background-color: rgb(173, 41, 162);
+}
+
+.player-war-winner {
+    background-color: rgb(189, 135, 20);
+}
 .text {
     grid-column: span 5;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;

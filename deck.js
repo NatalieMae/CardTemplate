@@ -21,7 +21,7 @@ push(card) {
     this.cards.push(card)           //adds a card to the bottom of the deck 
 }
 
-shuffle() {
+shuffle() {     //this.numberOfCards is .length in the for loop
        for (let i = this.numberOfCards - 1; i > 0; i--) {           //loop needed otherwise shuffleing will not work properly 
                                                                     //this allows the shuffle to go from the back of the list of cards to the front
         const newIndex = Math.floor(Math.random() * (i + 1))        //random index from current card sets FLOOR allows for integers

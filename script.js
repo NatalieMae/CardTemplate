@@ -19,11 +19,15 @@ const CARD_VALUE_MAP = {
     Q: 12,
     K: 13,
     A: 14,
-}                                                                   //this allows for each card to have a value so the code knows who wins the hand
+}                                                                   //this allows for each card to have a numberic value so the code knows who wins the hand
 
 
 const computerCardSlot = document.querySelector(".computer-card-slot")
 const playerCardSlot = document.querySelector(".player-card-slot")
+const computerPlayerWar = document.querySelector(".computer-player-war")
+const playerComputerWar = document.querySelector(".player-computer-war")
+const computerWarWinner = document.querySelector("computer-war-winner")
+const playerWarWinner = document.querySelector("player-war-winner")
 const computerDeckElement = document.querySelector(".computer-deck")
 const playerDeckElement = document.querySelector(".player-deck")
 const text = document.querySelector('.text')
@@ -73,7 +77,8 @@ function flipCards() {
     inRound = true
 
     const playerCard = playerDeck.pop()
-    const computerCard = computerDeck.pop()                         //I want the draw part of the game to actually start the war part. 
+    const computerCard = computerDeck.pop()
+                                                                     //I want the draw part of the game to actually start the war part. 
                                                                     //I would need to add an additional else loop for when there is a draw
     playerCardSlot.appendChild(playerCard.getHTML())                //that draw has to allow for an additional two cards per player to be drawn.
     computerCardSlot.appendChild(computerCard.getHTML())            //and in order. so first cards are a draw second cards are face down thrid cards face up who ever wins face up gets all the cards from the hand. 
@@ -85,12 +90,18 @@ function flipCards() {
         playerDeck.push(computerCard)
     } else if (isRoundWinner(computerCard, playerCard)) {       
         text.innerText = "Lose"
-        computerDeck.push(playerCard)
-        computerDeck.push(computerCard)
-    } else {
+        computerDeck.push(playerCard)                               //I should be able to add an additional 4spots for my cards to create the war part of war. 
+        computerDeck.push(computerCard)                             //I beleive I added the correct information to the HTML and to my js files but I believe I need to add more 
+    } else if (isRoundWinner(computerCard, playerCard)) {           //equations of some sort to get the cards to line up and pull more without the cards going back into the pile too soon.
         text.innerText = "Draw"
         playerDeck.push(playerCard)
         computerDeck.push(computerCard)
+    } else (isRoundWinner(computerCard, playerCard)) {
+        text.innerText = "WAR!"
+        playerDeck.push(playerCard)
+        computerDeck.push(computerCard)
+        playerDeck.push(computerCard)
+        computerDeck.push(playerCard)
     }
     
     if (isGameOver(playerDeck)) {
@@ -102,8 +113,8 @@ function flipCards() {
     }
 }
 
-function updateDeckCount() {                                                    //****updateDeckCount */
-    computerDeckElement.innerText = computerDeck.numberOfCards
+function updateDeckCount() {                                                    //****updateDeckCount this function allows for the text that states winner/looser
+    computerDeckElement.innerText = computerDeck.numberOfCards                  //this numberOfCards is in the deck.js file to make this pretty code run
     playerDeckElement.innerText = playerDeck.numberOfCards
 }
 
