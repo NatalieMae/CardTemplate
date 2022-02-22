@@ -19,11 +19,11 @@ push(card) {
 }
 
 shuffle() {
-       for (let i = this.numberOfCards - 1; i > 0; i--) {     //loop needed otherwise shuffleing will not work properly 
-                                                                //this allows the shuffle to go from the back of the list of cards to the front
-        const newIndex = Math.floor(Math.random() * (i + 1))         //random index from current card sets FLOOR allows for integers
-        const oldValue = this.cards[newIndex]                   //flip values oldvalue is current value newIndex is take card at i index goes into newIndex
-        this.cards[newIndex] = this.cards[i]                //random index before current card on swap looping cards and swapping cards randomly every time
+       for (let i = this.numberOfCards - 1; i > 0; i--) {           //loop needed otherwise shuffleing will not work properly 
+                                                                    //this allows the shuffle to go from the back of the list of cards to the front
+        const newIndex = Math.floor(Math.random() * (i + 1))        //random index from current card sets FLOOR allows for integers
+        const oldValue = this.cards[newIndex]                       //flip values oldvalue is current value newIndex is take card at i index goes into newIndex
+        this.cards[newIndex] = this.cards[i]                        //random index before current card on swap looping cards and swapping cards randomly every time
         this.cards[i] = oldValue
        }                         
     }
@@ -49,9 +49,9 @@ getHTML() {
     }
 }
 
-function freshDeck() {                  // create Brand new Deck of cards loop through suits and values
-    return SUITS.flatMap(suit => {      //flatMap condenses the array of cards adding the return statements 
-        return VALUES.map(value => {        // allows for the arrays from both value and suits to be added and shuffled vs in order.
+function freshDeck() {                                          //create Brand new Deck of cards loop through suits and values
+    return SUITS.flatMap(suit => {                              //flatMap condenses the array of cards adding the return statements 
+        return VALUES.map(value => {                            //allows for the arrays from both value and suits to be added and shuffled vs in order.
             return new Card(suit, value)
         })
     })
