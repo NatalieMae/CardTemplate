@@ -92,19 +92,19 @@ function flipCards() {
         text.innerText = "Lose"
         computerDeck.push(playerCard)                               //I should be able to add an additional 4spots for my cards to create the war part of war. 
         computerDeck.push(computerCard)                             //I beleive I added the correct information to the HTML and to my js files but I believe I need to add more 
-    } else if (isRoundWinner(computerCard, playerCard)) {           //equations of some sort to get the cards to line up and pull more without the cards going back into the pile too soon.
+    } else if(isRoundWinner(computerCard, playerCard)) {           //equations of some sort to get the cards to line up and pull more without the cards going back into the pile too soon.
         text.innerText = "Draw"
         playerDeck.push(playerCard)
-        computerDeck.push(computerCard)
-    } else (isRoundWinner(computerCard, playerCard)) {
-        text.innerText = "WAR!"
+        computerDeck.push(computerCard)                         //can not add the second else if statement to this due to it stopping a draw from happening 
+    } else (isRoundWinner(computerCard, playerCard)) {                //when I tried to play the game 2.21.22
+        text.innerText = "War!"
         playerDeck.push(playerCard)
         computerDeck.push(computerCard)
-        playerDeck.push(computerCard)
-        computerDeck.push(playerCard)
-    }
-    
-    if (isGameOver(playerDeck)) {
+                        //I believe I need to add another combination of code here as well as possibly adding another const for the player(pop)
+                        //or maybe I need to add War to the if statement below line 107. Since it is going to be a win'/lose of some sort.
+                    
+                    
+        if (isGameOver(playerDeck)) {
         text.innerText = "You Lose!!"
         stop = true
     } else if (isGameOver(computerDeck)) {
