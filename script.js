@@ -96,13 +96,12 @@ function flipCards() {
         text.innerText = "Draw"
         playerDeck.push(playerCard)
         computerDeck.push(computerCard)                         //can not add the second else if statement to this due to it stopping a draw from happening 
-    } else (isRoundWinner(computerCard, playerCard)) {                //when I tried to play the game 2.21.22
-        text.innerText = "War!"
-        playerDeck.push(playerCard)
-        computerDeck.push(computerCard)
-                        //I believe I need to add another combination of code here as well as possibly adding another const for the player(pop)
-                        //or maybe I need to add War to the if statement below line 107. Since it is going to be a win'/lose of some sort.
-                    
+     } else if (isRoundWinner(computerCard, playerCard)){              //when I tried to play the game 2.21.22
+        text.innerText = "War!"                             //line 95 was the end of the if/else loops I added an additional else statement and I believe that is 
+        playerDeck.push(playerCard)                         //where I am having problems. ok Im done messing around lol oh and my cards are messed up now...
+        computerDeck.push(computerCard) 
+    }
+
                     
         if (isGameOver(playerDeck)) {
         text.innerText = "You Lose!!"
@@ -112,6 +111,7 @@ function flipCards() {
         stop = true
     }
 }
+
 
 function updateDeckCount() {                                                    //****updateDeckCount this function allows for the text that states winner/looser
     computerDeckElement.innerText = computerDeck.numberOfCards                  //this numberOfCards is in the deck.js file to make this pretty code run
