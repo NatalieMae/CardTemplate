@@ -11,7 +11,7 @@ get numberOfCards() {
 }
 
 pop() {
-    return this.cards.shift()       //shift allows the game to grab the top element (pf the array) vs the bottom element
+    return this.cards.shift()       //shift allows the game to grab the top element (Of the array) vs the bottom element
 }                                   // return the top card of deck. 
 
 push(card) {
@@ -36,12 +36,12 @@ class Card {
     }
 
     get color() {
-        return this.suit === '♣' || this.suit === '♠' ? 'black' : 'red'    
-    }
+        return this.suit === '♣' || this.suit === '♠' ? 'black' : 'red' // I am unsure if this is going to allow me to add my own pictures to be the background   
+    }                                                                   // of the card. 
 
 
 getHTML() {
-    const cardDiv = document.createElement('div')
+    const cardDiv = document.createElement('div')               //this I believe connects to the HTML page and allows all code and CSS to be applied to the final product
     cardDiv.innerText = this.suit
     cardDiv.classList.add("card", this.color)
     cardDiv.dataset.value = `${this.value} ${this.suit}`

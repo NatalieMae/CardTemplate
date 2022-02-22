@@ -21,7 +21,7 @@ const playerDeckElement = document.querySelector(".player-deck")
 const text = document.querySelector('.text')
 
 
-let playerDeck, computerDeck, inRound, stop   //this allows payerdeck and comptuer deck to be global 
+let playerDeck, computerDeck, inRound, stop   //this allows playerdeck and comptuerdeck etc to be global 
 
 document.addEventListener("click", () => {
     if (stop) {
@@ -45,8 +45,8 @@ function startGame() {
     const deckMidpoint = Math.ceil(deck.numberOfCards / 2)  //using .ceil avoids rounding errors
     playerDeck = new Deck(deck.cards.slice(0, deckMidpoint))  //player deck and computer deck are being grabbed from HTML as key words
     computerDeck = new Deck(deck.cards.slice(deckMidpoint, deck.numberOfCards))
-    inRound = false
-    stop = false
+    inRound = false     
+    stop = false        //stops the game when there is a winner
 
     cleanBeforeRound()
 }
@@ -64,18 +64,17 @@ function flipCards() {
     inRound = true
 
     const playerCard = playerDeck.pop()
-    const computerCard = computerDeck.pop()
-
-    playerCardSlot.appendChild(playerCard.getHTML())
-    computerCardSlot.appendChild(computerCard.getHTML())
-
-    updateDeckCount()
-
-    if (isRoundWinner(playerCard, computerCard)) {
-        text.innerText = "Win"
-        playerDeck.push(playerCard)
+    const computerCard = computerDeck.pop()                     //I want the draw part of the game to actually start the war part. 
+                                                                // I would need to add an additional else loop for when there is a draw
+    playerCardSlot.appendChild(playerCard.getHTML())              //that draw has to allow for an additional two cards per player to be drawn.
+    computerCardSlot.appendChild(computerCard.getHTML())            // and in order. so first cards are a draw second cards are face down thrid cards face up who ever wins face up gets all the cards from the hand. 
+                                                                    // the face down cards are the "bonus/reward" for winning the "war" ie hand 
+    updateDeckCount()                               //****updateDeckCount SO A FUNCTION THAT IS BEING PULLED AT THE BOTTOM THAT IS CONNECTED TO THE updateDeckCount IN THE FUNCTION FOR START GAME. */
+    if (isRoundWinner(playerCard, computerCard)) {          //**** IT ALL TECHNICALLY MATCHES UP AND DOESN'T HAVE TO BE WRITTEN IN COMPLETION RIGHT AWAY. YOU MAY ADD TO THE FUNCTION THROUGHOUT THE  */
+        text.innerText = "Win"                              //*** CODING PROCESS. THIS CODE WAS WRITTEN GOING BACK AND FORTH BETWEEN ALL FILES AND MATCHING THE FUNCTIONS UP ON ONE JS WITH ANOTHER AND ADJUSTING  */
+        playerDeck.push(playerCard)                         //**THE HTML AS WE WENT ALONG.   TO FOLLOW THE PATTERN START AT THE BOTTOM AND WORK YOUR WAY UP TO SEE HOW THE CODE IS WRITTEN/
         playerDeck.push(computerCard)
-    } else if (isRoundWinner(computerCard, playerCard)) {
+    } else if (isRoundWinner(computerCard, playerCard)) {       
         text.innerText = "Lose"
         computerDeck.push(playerCard)
         computerDeck.push(computerCard)
@@ -94,7 +93,7 @@ function flipCards() {
     }
 }
 
-function updateDeckCount() {
+function updateDeckCount() {                                                    //****updateDeckCount */
     computerDeckElement.innerText = computerDeck.numberOfCards
     playerDeckElement.innerText = playerDeck.numberOfCards
 }
