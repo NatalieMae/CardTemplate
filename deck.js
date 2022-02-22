@@ -3,7 +3,7 @@ const VALUES = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"
 
 
 
-class Deck {
+class Deck {                //line 55 59 60 etc of Script.js
 
     constructor(cards= freshDeck()) {       //Gives us a fresh deck of current cards instead of getting us a brand new deck of cards, basically stays with the same game instead of accidentally starting over. 
         this.cards = cards
@@ -45,8 +45,8 @@ class Card {
 
 getHTML() {
     const cardDiv = document.createElement('div')               //this I believe connects to the HTML page and allows all code and CSS to be applied to the final product
-    cardDiv.innerText = this.suit
-    cardDiv.classList.add("card", this.color)
+    cardDiv.innerText = this.suit                               //it also connects the suits and values and makes it act like a playing card
+    cardDiv.classList.add("card", this.color)                   //'div' is in relation to the 'div's' in the HTML file.
     cardDiv.dataset.value = `${this.value} ${this.suit}`
     return cardDiv
     }
@@ -54,7 +54,7 @@ getHTML() {
 
 function freshDeck() {                                          //create Brand new Deck of cards loop through suits and values
     return SUITS.flatMap(suit => {                              //flatMap condenses the array of cards adding the return statements 
-        return VALUES.map(value => {                            //allows for the arrays from both value and suits to be added and shuffled vs in order.
+        return VALUES.map(value => {                            //allows for the arrays from both value and suits to be added and shuffled vs staying in number and suit order.
             return new Card(suit, value)
         })
     })

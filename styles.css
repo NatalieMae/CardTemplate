@@ -77,7 +77,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 4rem;
+    font-size: 6rem;
 }
 
 .card.red {
@@ -92,16 +92,18 @@ body {
 .card::after {
     position: absolute;
     content: attr(data-value); /* this goes back to the HTML data-value div */
-    font-size: 1rem;
+    font-size: 2rem;
     }
 
 .card::before {
     top: .5rem;
     left: .5rem;
+    /* font-size: 3rem; */
 }
 
 .card::after {
     bottom: .5rem; 
     right: .5rem;
+    /* font-size: 3rem; */
     transform: rotate(180deg);  /*this allows the bottom heart and number to flip upside down */
 }
