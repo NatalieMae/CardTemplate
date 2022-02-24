@@ -1,10 +1,3 @@
-// function insert() {
-
-// // let img = document.createElement('img');
-// //     img.src = "./images/2016doorcounty-lighthouse.jpg";
-// //     let src = document.getElementById('div');
-// //     src.appendChild(img);
-// // }
 const CARD_VALUE_MAP = {
     "2": 2,
     "3": 3,
@@ -20,20 +13,18 @@ const CARD_VALUE_MAP = {
     K: 13,
     A: 14,
 }                                                                   //this allows for each card to have a numeric value so the code knows who wins the hand
-
+// const CARD_VALUE_WAR_MAP
 
 const computerCardSlot = document.querySelector(".computer-card-slot")
 const playerCardSlot = document.querySelector(".player-card-slot")              //these pull the info from or push to the HTML 
-const computerPlayerWar = document.querySelector(".computer-player-war")
-const playerComputerWar = document.querySelector(".player-computer-war")
 const computerWarWinner = document.querySelector("computer-war-winner")
 const playerWarWinner = document.querySelector(".player-war-winner")
 const computerDeckElement = document.querySelector(".computer-deck")
-const playerDeckElement = document.querySelector(".player-deck")
+const playerDeckElement = document.querySelector(".player-deck")  
 const text = document.querySelector('.text')
 
 
-let playerDeck, computerDeck, playerWarDeck, computerWarDeck, inRound, stop                         //this allows playerdeck and computerDeck etc to be global or attached to the code below? 
+let playerDeck, computerDeck, inRound, stop                         //this allows playerdeck and computerDeck etc to be global or attached to the code below? 
 
 
 document.addEventListener("click", () => {
@@ -44,9 +35,9 @@ document.addEventListener("click", () => {
                                                                     //deck.js should be able to be used as a template for other card games.
     if (inRound) {
         cleanBeforeRound()                                      //THIS SECTION (LINES 39-50) IS THE CLICK ON THE WEB BROWSER THAT WILL FLIP THE CARDS, THIS MAKES THE WHOLE THING RUN
-    } else {
-        flipCards()                                                 //this section is being created to have a function that will be created below in the function area to make this listener work
-    }                                                               //
+    } else  {
+        flipCards()
+    }                                                 //this section is being created to have a function that will be created below in the function area to make this listener work                                                            //
 })
 
 
@@ -58,7 +49,7 @@ function startGame() {
     const deckMidpoint = Math.ceil(deck.numberOfCards / 2)              //using .ceil avoids rounding errors
     playerDeck = new Deck(deck.cards.slice(0, deckMidpoint))            //player deck and computer deck are being grabbed from HTML as key words
     computerDeck = new Deck(deck.cards.slice(deckMidpoint, deck.numberOfCards))
-    warDeck = new Deck(deck.cards.slice())    //THIS IS UNFINISHED TEXT I BELIEVE I NEED TO ADD MORE HERE BUT I CAN'T THINK RIGHT NOW
+    playerWarWinner = new Deck(deck.cards.(deckMidpoint, deck.numberOfCards))  
     inRound = false     
     stop = false        //stops the game when there is a winner
 
@@ -80,43 +71,49 @@ function flipCards() {
 
     const playerCard = playerDeck.pop()
     const computerCard = computerDeck.pop()
-    const warCard = warDeck.pop()                                       
+    // const playerWarWinner = playerDeck.pop() 
+    // const computerWarWinner = computerDeck.pop()                                      
                                                                      
                                                                    
     playerCardSlot.appendChild(playerCard.getHTML())                
     computerCardSlot.appendChild(computerCard.getHTML()) 
-    // warCardSlot.appendChild(warCard.getHTML())           
+    playerWarWinner.appendChild(playerCard.getHTML())
+    computerWarWinner.appendChild(computerCard.getHTML())         
                                                                     
-    updateDeckCount()                                               
-    if (isRoundWinner(playerCard, computerCard, warCard)) {                  
+    updateDeckCount()                                             
+    if (isRoundWinner(playerCard, computerCard)) {                  
         text.innerText = "Win"                                      
         playerDeck.push(playerCard)                                 
         playerDeck.push(computerCard)                              
-    } else if (isRoundWinner(computerCard, playerCard, warCard)) {       
+    } else if (isRoundWinner(computerCard, playerCard)) {       
         text.innerText = "Lose"
         computerDeck.push(playerCard)                               
         computerDeck.push(computerCard)                             
-    } else if(isRoundWinner(computerCard, playerCard, warCard)) {          
-        text.innerText = "Draw"
-        playerDeck.push(playerCard)
-        computerDeck.push(computerCard) 
-        // warDeck.push(playerCard === computerCard)    
-    }                                                                               //can not add the second else if statement to this due to it stopping a draw from happening 
-    //  } else if (isRoundWinner(computerCard, playerCard, warCard)){              //when I tried to play the game 2.21.22
-    //     text.innerText = "War!"                                                 //line 95 was the end of the if/else loops I added an additional else statement and I believe that is 
-    //     playerDeck.push(playerCard)                                             //where I am having problems. ok Im done messing around lol oh and my cards are messed up now...
-    //     computerDeck.push(computerCard) 
-    // }
+    } else if (isRoundWinner(playerWarWinner, computerWarWinner)){       
+        text.innerText = "War"
+        computerDeck.push(playerCard === computerCard)
+        playerDeck.push(computerCard === playerCard)
+    } else {
+        playerWarWinner.push(playerCard)
+        computerWarWinner.push(computerCard)
+    }
 
-                    
-        if (isGameOver(playerDeck)) {
+
+        // playerDeck.push(playerCard)
+        // computerDeck.push(computerCard) 
+        
+    }
+
+
+
+    if (isGameOver(playerDeck)) {
         text.innerText = "You Lose!!"
         stop = true
     } else if (isGameOver(computerDeck)) {
-        text.innerText = "You Win!!"                //CREATE A WARDECK?? MAYBE
+        text.innerText = "You Win!!"                
         stop = true
     }
-}
+
 
 
 function updateDeckCount() {                                                    //****updateDeckCount this function allows for the text that states winner/looser
@@ -124,10 +121,9 @@ function updateDeckCount() {                                                    
     playerDeckElement.innerText = playerDeck.numberOfCards
 }
 
-function isRoundWinner(cardOne, cardTwo, cardThree) {                         //this will determine who is the winner depending on the value of the card 
+function isRoundWinner(cardOne, cardTwo) {                         //this will determine who is the winner depending on the value of the card 
     return CARD_VALUE_MAP[cardOne.value] > CARD_VALUE_MAP[cardTwo.value]        //cardOne cardTwo are attached to the inRoundWinner loops, then follow the lines up and over to the deck.js file when other code needs to be explained
-        return CARD_VALUE_MAP[cardThree.value]
-    }       
+}       
         
 
 function isGameOver(deck) {

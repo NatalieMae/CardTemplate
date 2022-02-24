@@ -25,13 +25,13 @@ shuffle() {     //this.numberOfCards is .length in the for loop
        for (let i = this.numberOfCards - 1; i > 0; i--) {           //loop needed otherwise shuffleing will not work properly 
                                                                     //this allows the shuffle to go from the back of the list of cards to the front
         const newIndex = Math.floor(Math.random() * (i + 1))        //random index from current card sets FLOOR allows for integers
-        const oldValue = this.cards[newIndex]                       //flip values oldvalue is current value newIndex is take card at i index goes into newIndex
+        const oldValue = this.cards[newIndex]                       //flip values oldvalue is current value; newIndex takes the card at [i] (index) goes into newIndex
         this.cards[newIndex] = this.cards[i]                        //random index before current card on swap looping cards and swapping cards randomly every time
         this.cards[i] = oldValue
        }                         
     }
 }
-
+//the below code starts the creation of the deck. Along with the Array at the top of the page
 class Card {
     constructor(suit, value) {
         this.suit = suit
@@ -47,7 +47,7 @@ getHTML() {
     const cardDiv = document.createElement('div')               //this I believe connects to the HTML page and allows all code and CSS to be applied to the final product
     cardDiv.innerText = this.suit                               //it also connects the suits and values and makes it act like a playing card
     cardDiv.classList.add("card", this.color)                   //'div' is in relation to the 'div's' in the HTML file.
-    cardDiv.dataset.value = `${this.value} ${this.suit}`
+    cardDiv.dataset.value = `${this.value} ${this.suit}`            //Promises
     return cardDiv
     }
 }

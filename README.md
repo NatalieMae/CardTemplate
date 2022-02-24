@@ -40,3 +40,8 @@ If there is a draw then the players will place a card face down in their row. Th
  //I beleive I added the correct information to the HTML and to my js files but I believe I need to add more 
 
   //equations of some sort to get the cards to line up and pull more without the cards going back into the pile too soon.
+
+   //can not add the second else if statement to this due to it stopping a draw from happening 
+                                                                                                                                   //when I tried to play the game 2.21.22
+                                                                                //line 95 was the end of the if/else loops I added an additional else statement and I believe that is 
+                                                                                 //where I am having problems. ok Im done messing around lol oh and my cards are messed up now...

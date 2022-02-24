@@ -4,8 +4,8 @@
 
 body {
     background-image: url(./images/2016doorcounty-lighthouse.jpg);
-    object-fit: scale-down;
-    /* margin: 0;                   */
+    background-size: cover;
+    color: white;
     display: grid;              /* 5 section layout  */
     grid-template-columns: repeat(4, 1fr);     /* */
     grid-template-rows: 10rem 8rem 10rem;
@@ -21,7 +21,8 @@ body {
 } */
 
 .deck {
-    /* background-image: url(./images/202105\ whitewaterwi.jpg); */
+    background-image: url(./images/202105\ whitewaterwi.jpg);
+    background-size: 300px;
     border-image: round;
     height: 100%;            /* fills to 100% of the body margin/gird etc from above*/
     width: 100%;            
@@ -60,8 +61,10 @@ body {
     background-color: rgb(189, 135, 20);
 }
 .text {
+    background-image: url(./images/Upper\ Michigan\ Lake\ Superior\ II.jpg);
+    background-size: 300px;
     grid-column: span 5;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 80px;
     display: flex;
     justify-content: center;
@@ -69,6 +72,8 @@ body {
 }
 
 .card {     /* this allows for the small suit characters to appear on the cards in the correct position*/
+    background-image: url(./images/Sunset\ Storm\ Rolling\ in\ Gold\ Sky.jpg);
+    background-size: 300px;
     position: relative;
     height: 100% ;
     width: 100%;
