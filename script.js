@@ -17,7 +17,7 @@ const CARD_VALUE_MAP = {
 
 const computerCardSlot = document.querySelector(".computer-card-slot")
 const playerCardSlot = document.querySelector(".player-card-slot")              //these pull the info from or push to the HTML 
-const computerWarWinner = document.querySelector("computer-war-winner")
+const computerWarWinner = document.querySelector(".computer-war-winner")
 const playerWarWinner = document.querySelector(".player-war-winner")
 const computerDeckElement = document.querySelector(".computer-deck")
 const playerDeckElement = document.querySelector(".player-deck")  
@@ -49,7 +49,7 @@ function startGame() {
     const deckMidpoint = Math.ceil(deck.numberOfCards / 2)              //using .ceil avoids rounding errors
     playerDeck = new Deck(deck.cards.slice(0, deckMidpoint))            //player deck and computer deck are being grabbed from HTML as key words
     computerDeck = new Deck(deck.cards.slice(deckMidpoint, deck.numberOfCards))
-    playerWarWinner = new Deck(deck.cards.(deckMidpoint, deck.numberOfCards))  
+    // playerWinner = new Deck(deck.cards.start(0, deck.numberOfCards))  
     inRound = false     
     stop = false        //stops the game when there is a winner
 
@@ -60,7 +60,6 @@ function cleanBeforeRound() {                                           //(isRou
     inRound = false                                                     //this section allows for the action to appear in a browser 
     computerCardSlot.innerHTML = ""
     playerCardSlot.innerHTML = ""
-    // warCardSlot.innerHTML = ""
     text.innerText = ""                                                 
 
     updateDeckCount()
@@ -94,15 +93,11 @@ function flipCards() {
         computerDeck.push(playerCard === computerCard)
         playerDeck.push(computerCard === playerCard)
     } else {
-        playerWarWinner.push(playerCard)
-        computerWarWinner.push(computerCard)
+        text.innerText = "Finish Them!"
+        playerWarWinner.push(computerCard)
+        computerWarWinner.push(playerCard)
     }
-
-
-        // playerDeck.push(playerCard)
-        // computerDeck.push(computerCard) 
-        
-    }
+}
 
 
 
