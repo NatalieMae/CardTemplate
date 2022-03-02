@@ -16,30 +16,39 @@ const CARD_VALUE_MAP = {
 
 const DIV_computerDeck = document.querySelector(".computer-deck")
 const DIV_computerCardSlot = document.querySelector(".computer-card-slot")
-const DIV_computerWarWinner = document.querySelector(".computer-war-winner")
-const DIV_playerWarWinner = document.querySelector(".player-war-winner")
+const DIV_computerWarCard = document.querySelector(".computer-war-card")
+const DIV_playerWarCard = document.querySelector(".player-war-card")
 const DIV_text = document.querySelector('.text')
 const DIV_playerDeck = document.querySelector(".player-deck")  
 const DIV_playerCardSlot = document.querySelector(".player-card-slot")   
-// const DIV_playerWarWinner = document.querySelector(".player-war-winner")
 
-let playerDeck = [0]
-let computerDeck = [0] 
+
+let playerDeck = [];
+let computerDeck = [];
+let playerWarCard = [];
+let computerWarCard = [];
 let isRoundOver = false; 
-let gameOver = false;                         //this allows playerdeck and computerDeck etc to be global or attached to the code below? 
+let isGameOver = false;    
+                    
 
 function startGame() {
     resetData();
     clearHtmlTextContent();
-    dealCards();
     renderDeckCount();
+    dealCards();
+    flipCards();
+    isRoundWinner();
+    isGameOver();
 }  
+
+startGame();
 
 function resetData() {
     playerDeck = [];
     computerDeck = [];
-    gameOver = [];
     isRoundOver = false;
+    gameOver = false;
+  
 }
 
 function clearHtmlTextContent() {
@@ -57,9 +66,11 @@ function dealCards() {
 }
 
 
-function renderDeckCount() {                                           //(isRoundWinner function on line 121 along with line 77)                                        //this section allows for the action to appear in a browser 
+function renderDeckCount() {         
+    isRoundOver = false;                                                                 
     DIV_computerDeck.innerText = computerDeck.numberofCards;
-    DIV_playerDeck.innerText = playerDeck.numberOfCards;                                             
+    DIV_playerDeck.innerText = playerDeck.numberOfCards;  
+    // updateDeckCount();    //I am unsure if I can put this here....watch this line                                       
 }
 
 
@@ -68,17 +79,17 @@ function flipCards() {
 
     let playerCard = playerDeck.pop()
     let computerCard = computerDeck.pop()
-    // const playerWarWinner = playerDeck.pop() 
-    // const computerWarWinner = computerDeck.pop()                                      
+    let playerWarCard = playerDeck.pop()
+    let computerWarCard = computerDeck.pop()                                     
                                                                      
                                                                    
     DIV_playerCardSlot.appendChild(playerCard.getHTML());                
     DIV_computerCardSlot.appendChild(computerCard.getHTML()); 
-    DIV_playerWarWinner.appendChild(playerCard.getHTML());
-    DIV_computerWarWinner.appendChild(computerCard.getHTML());         
+    DIV_playerWarCard.appendChild(playerWarCard.getHTML());
+    DIV_computerWarCard.appendChild(computerWarCard.getHTML());         
                                                                     
-    renderDeckCount();                                             
-    if (isRoundWinner(DIV_playerCard, DIV_computerDeck)) {                  
+    renderDeckCount()                                             
+    if (isRoundWinner(playerCard, computerCard)) {                  
         DIV_text.innerText = "Win"                                      
         playerDeck.push(playerCard)                                 
         playerDeck.push(computerCard)                              
@@ -86,23 +97,24 @@ function flipCards() {
         DIV_text.innerText = "Lose"
         computerDeck.push(playerCard)                               
         computerDeck.push(computerCard)                             
-    } else if (isRoundWinner(playerWarWinner, computerWarWinner)){       
+    } else if (isRoundWinner(playerWarCard, computerWarCard)){       
         DIV_text.innerText = "War"
-        computerDeck.push(playerCard === computerCard)
-        playerDeck.push(computerCard === playerCard)
-    } else {
-        DIV_text.innerText = "Finish Them!"
-        DIV_playerWarWinner.push(computerCard)
-        DIV_computerWarWinner.push(playerCard)
+        playerDeck.push(computerCard)
+        computerDeck.push(playerCard)
     }
-}
+        // computerDeck.push(playerCard === computerCard)
+        // playerDeck.push(computerCard === playerCard)
+    // } else (isRoundWinner()) 
+    //     DIV_text.innerText = "Finish Them!"
+      
 
-    function isRoundWinner(cardOne, cardTwo) {    
-        return CARD_VALUE_MAP[cardOne.value] > CARD_VALUE_MAP[cardTwo.value];
-    } 
+    // let cardOne = undefined;
+    //     cardOne.substring();
+    // let cardTwo = undefined;
+    //     cardTwo.substring();
 
 
-    function isGameOver(deck) {
+function isGameOver(deck) {
         if (isGameOver(playerDeck)) {
         DIV_text.innerText = "You Lose!!"
        gameOver = true
@@ -113,33 +125,23 @@ function flipCards() {
     return deck.numberOfCards === 0;
     }
 
-    startGame();
+    function isRoundWinner(cardOne, cardTwo) {    
+        return CARD_VALUE_MAP[cardOne.value] > CARD_VALUE_MAP[cardTwo.value];
+    } 
+
     
 
     document.addEventListener("click", () => {
-        if (gameOver) {                                                 //all of these pieces were put together seperately. we started with startGame 
-            startGame()                                                 //wrote the functions for that then went back and added stop etc and then added the 
-            return                                                      //functions for that, etc.. this allowed me to connect all the dots between html.css.multiple js files. 
-        }                                                               //this is the code to play the game war and deck.js allows for a deck to be created. 
-                                                                        //deck.js should be able to be used as a template for other card games.
+        if (gameOver) {                                                 
+            startGame()                                                
+            return                                                      
+        }                                                               
+                                                                        
         if (isRoundOver) {
             clearHtmlTextContent();
-            renderDeckCount();                                      //THIS SECTION (LINES 39-50) IS THE CLICK ON THE WEB BROWSER THAT WILL FLIP THE CARDS, THIS MAKES THE WHOLE THING RUN
+            renderDeckCount();                                      
         } else  {
             flipCards();
-        }                                                 //this section is being created to have a function that will be created below in the function area to make this listener work                                                            //
+        }                                                 
     })
-
-
-
-
-
-
-
-// function updateDeckCount() {                                                    //****updateDeckCount this function allows for the text that states winner/looser
-//     computerDeckElement.innerText = computerDeck.numberOfCards                  //this numberOfCards is in the deck.js file to make this pretty code run
-//     playerDeckElement.innerText = playerDeck.numberOfCards
-// }
-                   
-        
-
+}

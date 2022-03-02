@@ -44,4 +44,11 @@ If there is a draw then the players will place a card face down in their row. Th
    //can not add the second else if statement to this due to it stopping a draw from happening 
                                                                                                                                    //when I tried to play the game 2.21.22
                                                                                 //line 95 was the end of the if/else loops I added an additional else statement and I believe that is 
-                                                                                 //where I am having problems. ok Im done messing around lol oh and my cards are messed up now...
+                                                                                 //where I am having problems. ok Im done messing around lol oh and my cards are messed up now..
+   //all of these pieces were put together seperately. we started with startGame 
+    //wrote the functions for that then went back and added stop etc and then added the 
+    //functions for that, etc.. this allowed me to connect all the dots between html.css.multiple js files. 
+    //this is the code to play the game war and deck.js allows for a deck to be created. 
+    //deck.js should be able to be used as a template for other card games.
+    //THIS SECTION (LINES 39-50) IS THE CLICK ON THE WEB BROWSER THAT WILL FLIP THE CARDS, THIS MAKES THE WHOLE THING RUN
+//this section is being created to have a function that will be created below in the function area to make this listener work                                                            //
