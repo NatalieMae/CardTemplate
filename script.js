@@ -28,7 +28,7 @@ let computerDeck = [];
 let playerWarCard = [];
 let computerWarCard = [];
 let isRoundOver = false; 
-let isGameOver = false;    
+let gameOver = false;    
                     
 
 function startGame() {
@@ -47,7 +47,7 @@ function resetData() {
     playerDeck = [];
     computerDeck = [];
     isRoundOver = false;
-    isGameOver = false;
+    // isGameOver = false;
   
 }
 
@@ -69,8 +69,7 @@ function dealCards() {
 function renderDeckCount() {         
     isRoundOver = false;                                                                 
     DIV_computerDeck.innerText = computerDeck.numberofCards;
-    DIV_playerDeck.innerText = playerDeck.numberOfCards;  
-    // updateDeckCount();    //I am unsure if I can put this here....watch this line                                       
+    DIV_playerDeck.innerText = playerDeck.numberOfCards;                                       
 }
 
 
@@ -79,14 +78,16 @@ function flipCards() {
 
     let playerCard = playerDeck.pop()
     let computerCard = computerDeck.pop()
-    let playerWarCard = playerDeck.pop()
-    let computerWarCard = computerDeck.pop()                                     
+    // let playerWarCard = playerDeck.pop()
+    // let computerWarCard = computerDeck.pop()                                     
                                                                      
                                                                    
     DIV_playerCardSlot.appendChild(playerCard.getHTML());                
     DIV_computerCardSlot.appendChild(computerCard.getHTML()); 
-    DIV_playerWarCard.appendChild(playerWarCard.getHTML());
-    DIV_computerWarCard.appendChild(computerWarCard.getHTML());         
+    // DIV_playerWarCard.appendChild(playerWarCard.getHTML());
+    // DIV_computerWarCard.appendChild(computerWarCard.getHTML());   
+    
+    
                                                                     
     renderDeckCount()                                             
     if (isRoundWinner(playerCard, computerCard)) {                  
@@ -101,11 +102,8 @@ function flipCards() {
         DIV_text.innerText = "War"
         playerDeck.push(computerCard)
         computerDeck.push(playerCard)
-    }
-        // computerDeck.push(playerCard === computerCard)
-        // playerDeck.push(computerCard === playerCard)
-    // } else (isRoundWinner()) 
-    //     DIV_text.innerText = "Finish Them!"
+
+     
 
 
 function isGameOver() {
@@ -118,7 +116,7 @@ function isGameOver() {
     }
     return deck.numberOfCards === 0;
     }
-
+    }
     function isRoundWinner(cardOne, cardTwo) {    
         return CARD_VALUE_MAP[cardOne.value] > CARD_VALUE_MAP[cardTwo.value];
     } 
