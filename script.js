@@ -37,8 +37,8 @@ function startGame() {
     renderDeckCount();
     dealCards();
     flipCards();
-    isRoundWinner();
-    isGameOver();
+    // isRoundWinner();
+    // isGameOver();
 }  
 
 startGame();
@@ -47,7 +47,7 @@ function resetData() {
     playerDeck = [];
     computerDeck = [];
     isRoundOver = false;
-    gameOver = false;
+    isGameOver = false;
   
 }
 
@@ -106,19 +106,13 @@ function flipCards() {
         // playerDeck.push(computerCard === playerCard)
     // } else (isRoundWinner()) 
     //     DIV_text.innerText = "Finish Them!"
-      
-
-    // let cardOne = undefined;
-    //     cardOne.substring();
-    // let cardTwo = undefined;
-    //     cardTwo.substring();
 
 
-function isGameOver(deck) {
-        if (isGameOver(playerDeck)) {
+function isGameOver() {
+        if (gameOver(playerDeck)) {
         DIV_text.innerText = "You Lose!!"
        gameOver = true
-    } else if (isGameOver(computerDeck)) {
+    } else if (gameOver(computerDeck)) {
         DIV_text.innerText = "You Win!!"                
         gameOver = true
     }
@@ -132,7 +126,7 @@ function isGameOver(deck) {
     
 
     document.addEventListener("click", () => {
-        if (gameOver) {                                                 
+        if (isGameOver) {                                                 
             startGame()                                                
             return                                                      
         }                                                               
