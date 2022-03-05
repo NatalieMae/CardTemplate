@@ -3,6 +3,7 @@
 }
 
 body {
+    background-color: green;
     margin: 0;                  /*  */
     display: grid;              /* 5 section layout  */
     grid-template-columns: repeat(2, 4rem);     /* */
@@ -17,7 +18,8 @@ body {
     height: 100%;            /* fills to 100% of the body margin/gird etc from above*/
     width: 100%;            
     border: 1px solid black;
-    display: flex;
+    display: block;
+    
     justify-content: center;
     align-items: center;
     font-size: 3rem;
@@ -32,6 +34,7 @@ body {
 
 .player-deck {
     background-color: blue;
+   
 }
 
 .text {
@@ -50,7 +53,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 4rem;
+    font-size: 3rem;
 }
 
 .card.red {

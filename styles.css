@@ -3,7 +3,7 @@
 }
 
 body {
-    background-image: url(./images/2016doorcounty-lighthouse.jpg);
+    background-color: rgb(10, 77, 10);
     background-size: cover;
     color: white;
     display: grid;              /* 5 section layout  */
