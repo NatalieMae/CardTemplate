@@ -17,8 +17,8 @@ pop() {
     return this.cards.shift()       //shift allows the game to grab the top element (Of the array) vs the bottom element
 }                                   // return the top card of deck. 
 
-push() {
-   return this.cards.push()           //adds a card to the bottom of the deck 
+push(card) {
+   return this.cards.push(card)           //adds a card to the bottom of the deck 
 }
 
 shuffle() {     //this.numberOfCards is .length in the for loop
