@@ -45,19 +45,20 @@ body {
     background-color: blue;
 }
 
-.computer-player-war {
+
+.war1 {
     background-color: blueviolet;
 }
 
-.player-computer-war {
+.war2 {
     background-color: aqua;
 }
 
-.computer-war-winner {
+.computer-war-card {
     background-color: rgb(173, 41, 162);
 }
 
-.player-war-winner {
+.player-war-card {
     background-color: rgb(189, 135, 20);
 }
 .text {
