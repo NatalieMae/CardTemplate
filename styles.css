@@ -1,44 +1,45 @@
 *, *::after, *::before {
-    box-sizing: border-box;     /* do for all elements global makes it easier to style the elements*/
+    box-sizing: border-box;     
 }
 
-body {
+/* body {
     background-color: rgb(10, 77, 10);
     background-size: cover;
     color: white;
-    display: grid;              /* 5 section layout  */
-    grid-template-columns: repeat(4, 1fr);     /* */
+    display: grid;             
+    grid-template-columns: repeat(4, 1fr);     
     grid-template-rows: 10rem 8rem 10rem;
     grid-auto-rows: minmax(100px, auto);
-    gap: 20px;              /* */
-    /* cursor: pointer;                 anywhere you click on the screen turns a card */
-    justify-content: center;         /* */
-    padding-top: 1rem;       /* */
-}   
+    gap: 20px;           
+    padding-top: 1rem;       
+}    */
 
 /* .image {
     background-color: blue;
+} */
+/* body {
+    display:flex ;
+    box-shadow:none;
 } */
 
 .deck {
     background-image: url(./images/202105\ whitewaterwi.jpg);
     background-size: 300px;
     border-image: round;
-    height: 100%;            /* fills to 100% of the body margin/gird etc from above*/
+    height: 100%;           
     width: 100%;            
     border: 1px solid black;
-    display: flex;
+    /* display: flex;
     justify-content: center;
     align-items: center;
     font-size: 3rem;
     border-radius: .5rem ;
     color: white;
-    user-select: none;      /* this makes it so the user can not select the text just the card */
+    user-select: none;      */
 }
 
 .computer-deck {
     background-color: green;
-   
 }
 
 .player-deck {
@@ -72,7 +73,7 @@ body {
     align-items: center;
 }
 
-.card {     /* this allows for the small suit characters to appear on the cards in the correct position*/
+.card {     
     background-image: url(./images/Sunset\ Storm\ Rolling\ in\ Gold\ Sky.jpg);
     background-size: 300px;
     position: relative;
@@ -97,19 +98,17 @@ body {
 .card::before,
 .card::after {
     position: absolute;
-    content: attr(data-value); /* this goes back to the HTML data-value div */
+    content: attr(data-value); 
     font-size: 2rem;
     }
 
 .card::before {
     top: .5rem;
     left: .5rem;
-    /* font-size: 3rem; */
 }
 
 .card::after {
     bottom: .5rem; 
     right: .5rem;
-    /* font-size: 3rem; */
-    transform: rotate(180deg);  /*this allows the bottom heart and number to flip upside down */
+    transform: rotate(180deg); 
 }

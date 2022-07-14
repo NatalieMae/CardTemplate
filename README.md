@@ -52,3 +52,87 @@ If there is a draw then the players will place a card face down in their row. Th
     //deck.js should be able to be used as a template for other card games.
     //THIS SECTION (LINES 39-50) IS THE CLICK ON THE WEB BROWSER THAT WILL FLIP THE CARDS, THIS MAKES THE WHOLE THING RUN
 //this section is being created to have a function that will be created below in the function area to make this listener work                                                            //
+
+*, *::after, *::before {
+    box-sizing: border-box;     /* do for all elements global makes it easier to style the elements*/
+}
+
+body {
+    background-color: green;
+    margin: 0;                  /*  */
+    display: grid;              /* 5 section layout  */
+    grid-template-columns: repeat(2, 4rem);     /* */
+    grid-template-rows: 7rem 2rem 7rem;
+    gap: .5rem;              /* */
+    cursor: pointer;                 /*anywhere you click on the screen turns a card */
+    justify-content: center;         /* */
+    padding-top: 1rem;       /* */
+}   
+
+.deck {
+    height: 100%;            /* fills to 100% of the body margin/gird etc from above*/
+    width: 100%;            
+    border: 1px solid black;
+    display: block;
+    
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    border-radius: .5rem;
+    color: white;
+    user-select: none;      /* this makes it so the user can not select the text just the card*/
+}
+
+.computer-deck {
+    background-color: green;
+}
+
+.player-deck {
+    background-color: blue;
+   
+}
+
+.text {
+    grid-column: span 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    position: relative;
+    height: 100% ;
+    width: 100%;
+    border: 3px solid black;
+    border-radius: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+}
+
+.card.red {
+    color: red;
+}
+
+.card.black {
+    color: black;
+}
+
+.card::before,
+.card::after {
+    position: absolute;
+    content: attr(data-value); /* this goes back to the HTML data-value div */
+    font-size: 1rem;
+    }
+
+.card::before {
+    top: .5rem;
+    left: .5rem;
+}
+
+.card::after {
+    bottom: .5rem; 
+    right: .5rem;
+    transform: rotate(180deg);  /*this allows the bottom heart and number to flip upside down */
+}
