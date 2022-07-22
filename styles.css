@@ -2,7 +2,7 @@
     box-sizing: border-box;     
 }
 
-/* body {
+body {
     background-color: rgb(10, 77, 10);
     background-size: cover;
     color: white;
@@ -12,11 +12,11 @@
     grid-auto-rows: minmax(100px, auto);
     gap: 20px;           
     padding-top: 1rem;       
-}    */
+}    
 
-/* .image {
+.image {
     background-color: blue;
-} */
+} 
 /* body {
     display:flex ;
     box-shadow:none;
@@ -29,13 +29,13 @@
     height: 100%;           
     width: 100%;            
     border: 1px solid black;
-    /* display: flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     font-size: 3rem;
     border-radius: .5rem ;
     color: white;
-    user-select: none;      */
+    user-select: none;     
 }
 
 .computer-deck {
