@@ -39,7 +39,7 @@ If for some reason there is a tie or each player needs to stop  the game; the ca
 
 **Demo of Game**
 ================
-
+https://github.com/NatalieMae/CardTemplate/issues/2#issue-1315966544
 
 **Technologies**
 ================
@@ -54,5 +54,6 @@ If for some reason there is a tie or each player needs to stop  the game; the ca
 1. CSS needs to be adjusted and completed. 
 1. Can only currently play the computer upper level is computer and lower level is player. 
 
+https://github.com/NatalieMae/CardTemplate/blob/597f779844f765cf4d5a59050524b3c9294eccb1/index.html#L1
 
-
+ß
