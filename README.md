@@ -1,138 +1,58 @@
-# The Game of War 
-The purpose of war is to have fun and get the whole deck in your hand.
+**The Game of War!**
+=========================
 
-Deal out the whole deck and make sure to keep all the cards FACE DOWN. 
+The purpose of war is to try to collect the entire deck before the other player does. 
 
-Each player should flip the first card at the same time; give or take a few seconds. 
+**The Steps**
+==========================
+1. Deal out the whole deck between two players. 
+1. If there are more than two players an additional deck has to be added to the game. 
+1. Each players clicks their top card of the deck. 
+1. The highest card wins the hand.
+1. If the same card is pulled by each player; than a war has to insue. 
+1. Two additional card spots are created in each players hand for the war to be played.
+1. Each player clicks on their deck until all the spots are filled. The final card pulled that is highest wins the hand. 
+1. If for some reason there is another tie an additional 2 more boxes should appear for a double war to insue. 
+1. Ace is the highest card in the deck, then King, Queen, etc.. The suite of the card is irrelevant in the game of War.
 
-The highest card is the Ace and lowest is the 2. There are NO wilds in this game. The person with the highest card number wins the hand. 
-ie: 2,3,4,5,6,7,8,9,10,J,Q,K,A Ace being the highest 'numbered' card.
 
-If there is a draw then the players will place a card face down in their row. Then they will pull another card and have it face up. Person with the highest numbered card wins the whole hand. (the face down cards are revealed to both players after the thrid card is drawn.) 
+| Cards         | Numberical value |
+| :-----------: | :--------------: |
+|A              |     14           |   
+|K              |     13           |
+|Q              |     12           |
+|J              |     11           |
+|10                                | 
+|9                                 |
+|8                                 |
+|7                                 |
+|6                                 |
+|5                                 |
+|4                                 |
+|3                                 |
+|2                                 |
 
-** Stretch: I have the basic code for the game and the deck prepared so a version of war can be played. I need to apply the war part of the game to this script and the additional CSS that I would like to add if I have time. Also, I need to add additional code to make the "bonus cards" turn over on their own once the third card is pulled during a "War" round. 
+
+**Tie**
+============
+If for some reason there is a tie or each player needs to stop  the game; the cards will be counted and the person with the most cards wins the game. 
+
+**Demo of Game**
+================
+
+
+**Technologies**
+================
+
+
+**Technical Information**
+=========================
+
+**Issues**
+=============
+1. This game is only partially complete. The war part of the game is incomplete code. 
+1. CSS needs to be adjusted and completed. 
+1. Can only currently play the computer upper level is computer and lower level is player. 
 
 
 
-//this section is in reference to script.js lines 81-103 but I am adding more lines and this has gotta go! :) 
-//I want the draw part of the game to actually start the war part. 
-
-//I would need to add an additional else loop for when there is a draw
-
-//that draw has to allow for an additional two cards per player to be drawn.
-
-//and in order. so first cards are a draw second cards are face down thrid cards face up who ever wins face up gets all the cards from the hand. 
-
-// the face down cards are the "bonus/reward" for winning the "war" ie hand 
-
-//****updateDeckCount SO A FUNCTION THAT IS BEING PULLED AT THE BOTTOM THAT IS CONNECTED TO THE updateDeckCount IN THE FUNCTION FOR START GAME. */
-
-//**** IT ALL TECHNICALLY MATCHES UP AND DOESN'T HAVE TO BE WRITTEN IN COMPLETION RIGHT AWAY. YOU MAY ADD TO THE FUNCTION THROUGHOUT THE  */
-
-//*** CODING PROCESS. THIS CODE WAS WRITTEN GOING BACK AND FORTH BETWEEN ALL FILES AND MATCHING THE FUNCTIONS UP ON ONE JS WITH ANOTHER AND ADJUSTING  */
-
-//**THE HTML AS WE WENT ALONG.   TO FOLLOW THE PATTERN START AT THE BOTTOM AND WORK YOUR WAY UP TO SEE HOW THE CODE IS WRITTEN/
-
- ///line 16-22 of desk.js
-
- //I should be able to add an additional 4spots for my cards to create the war part of war. 
-
- //I beleive I added the correct information to the HTML and to my js files but I believe I need to add more 
-
-  //equations of some sort to get the cards to line up and pull more without the cards going back into the pile too soon.
-
-   //can not add the second else if statement to this due to it stopping a draw from happening 
-                                                                                                                                   //when I tried to play the game 2.21.22
-                                                                                //line 95 was the end of the if/else loops I added an additional else statement and I believe that is 
-                                                                                 //where I am having problems. ok Im done messing around lol oh and my cards are messed up now..
-   //all of these pieces were put together seperately. we started with startGame 
-    //wrote the functions for that then went back and added stop etc and then added the 
-    //functions for that, etc.. this allowed me to connect all the dots between html.css.multiple js files. 
-    //this is the code to play the game war and deck.js allows for a deck to be created. 
-    //deck.js should be able to be used as a template for other card games.
-    //THIS SECTION (LINES 39-50) IS THE CLICK ON THE WEB BROWSER THAT WILL FLIP THE CARDS, THIS MAKES THE WHOLE THING RUN
-//this section is being created to have a function that will be created below in the function area to make this listener work                                                            //
-
-*, *::after, *::before {
-    box-sizing: border-box;     /* do for all elements global makes it easier to style the elements*/
-}
-
-body {
-    background-color: green;
-    margin: 0;                  /*  */
-    display: grid;              /* 5 section layout  */
-    grid-template-columns: repeat(2, 4rem);     /* */
-    grid-template-rows: 7rem 2rem 7rem;
-    gap: .5rem;              /* */
-    cursor: pointer;                 /*anywhere you click on the screen turns a card */
-    justify-content: center;         /* */
-    padding-top: 1rem;       /* */
-}   
-
-.deck {
-    height: 100%;            /* fills to 100% of the body margin/gird etc from above*/
-    width: 100%;            
-    border: 1px solid black;
-    display: block;
-    
-    justify-content: center;
-    align-items: center;
-    font-size: 3rem;
-    border-radius: .5rem;
-    color: white;
-    user-select: none;      /* this makes it so the user can not select the text just the card*/
-}
-
-.computer-deck {
-    background-color: green;
-}
-
-.player-deck {
-    background-color: blue;
-   
-}
-
-.text {
-    grid-column: span 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.card {
-    position: relative;
-    height: 100% ;
-    width: 100%;
-    border: 3px solid black;
-    border-radius: .5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 3rem;
-}
-
-.card.red {
-    color: red;
-}
-
-.card.black {
-    color: black;
-}
-
-.card::before,
-.card::after {
-    position: absolute;
-    content: attr(data-value); /* this goes back to the HTML data-value div */
-    font-size: 1rem;
-    }
-
-.card::before {
-    top: .5rem;
-    left: .5rem;
-}
-
-.card::after {
-    bottom: .5rem; 
-    right: .5rem;
-    transform: rotate(180deg);  /*this allows the bottom heart and number to flip upside down */
-}
